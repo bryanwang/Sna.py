@@ -1,4 +1,6 @@
 from Crypto.Cipher import AES
+from Crypto.Hash import HMAC
+from base64 import b64encode
 from hashlib import sha256
 import codecs
 from time import time
@@ -20,7 +22,7 @@ Sent Snaps: sts
 Opened: ts
 Sender: sn
 Recipient: rp
-Status: st = 1 (sent to you), 2 (sent by you)
+Send Type: st = 1 (sent to you), 2 (sent by you)
 Time: t
 Screenshot Count: c
 '''
@@ -83,4 +85,6 @@ def encrypt(data):
     cipher = AES.new(BLOB_KEY, AES.MODE_ECB)
     return cipher.encrypt(data)
 
-
+feed = json.loads(login('itsdagraham', 'ShiGeLian16').text)
+print(req_token(feed['auth_token']))
+print(timestamp())
