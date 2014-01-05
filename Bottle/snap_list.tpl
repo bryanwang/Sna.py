@@ -1,7 +1,9 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/snapy/style"/>
-  	<link rel="stylesheet" type="text/css" href="/snapy/theme"/>
+  <link rel="stylesheet" type="text/css" href="/snapy/theme"/>
+  <meta name="viewport" content="width=320" />
+  <meta name="viewport" content="user-scalable=no" />
 	<style type="text/css">
       body {
         padding-top: 40px;
@@ -21,29 +23,18 @@
            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,.05);
       }
-
-    </style>
+  </style>
 </head>
 <body>
-	<div class='container' id='snapchats'>
-		<table class='table table-hover table-rows' border="1">
-			<thead>
-				<tr>
-					%for d in snap:
-						<th>{{d}}</th>
-					%end
-				</tr>
-			</thead>
-			%for s in snaps:
-				<tbody>
-					<tr>
-					%for d in s:
-						<td>{{s[d]}}</td>
-					%end
-					</tr>
-				</tbody>
-			%end
-		</table>
-	</div>	
+		<div class='container'>
+				<ul class='list-group' border="1">
+          %for i in range(0, len(ids)):
+  					<li id='item' class='list-group-item'>
+              <button id='viewbutton' type='submit' class='btn btn-sm btn-primary' onClick="window.location={{loadImage[i]}}">View</button>
+  						<b>From: <i>{{senders[i]}}</i></b>
+  					</li>
+          %end
+				</ul>
+		</div>
 </body>
 </html>
