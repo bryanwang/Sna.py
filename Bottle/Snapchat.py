@@ -138,3 +138,4 @@ class Snapchat:
         req = requests.post('https://feelinsonice-hrd.appspot.com/bq/find_friends', data=data, headers={"User-agent": None})
         return req
     '''
+    
