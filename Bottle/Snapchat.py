@@ -80,6 +80,13 @@ class Snapchat:
             f.write(raw)
         return static_file(media_id + '.mp4', root='videos/')
 
+    def stories(self, username, auth_token):
+        data = {'username': username,
+                'timestamp': self.sec.timestamp(),
+                'req_token': self.sec.req_token(auth_token)}
+        req = requests.post('https://feelinsonice-hrd.appspot.com/bq/stories', data)
+        return req
+
     def upload(self, username, auth_token, content, media_id, data_type):
         data = {'username': username,
                 'timestamp': self.sec.timestamp(),
